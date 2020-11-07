@@ -12,7 +12,7 @@ module Xremap
 
       def split_into_key_and_mods(exp)
         modifiers = []
-        while exp.match(/\A(?<modifier>(C|Ctrl|M|Alt|Shift|Super|Win))-/)
+        while exp.match(/\A(?<modifier>(C|Ctrl|M|Alt|Shift|Super|Hyper|Mode_switch))-/)
           modifier = Regexp.last_match[:modifier]
           modifiers << modifier
           exp = exp.sub(/\A#{modifier}-/, '')
