@@ -10,7 +10,7 @@ MRuby::Build.new do |conf|
   end
 
   conf.cc do |cc|
-    cc.include_paths += %w(/opt/X11/include)
+    cc.include_paths += %w(/usr/include/X11)
 
     # Never support Visual C++.
     # https://github.com/mruby/mruby/blob/1.2.0/CONTRIBUTING.md#comply-with-c99-isoiec-98991999
@@ -21,6 +21,6 @@ MRuby::Build.new do |conf|
 
   conf.linker do |linker|
     linker.libraries += %w(X11)
-    linker.library_paths += %w(/opt/X11/lib)
+    linker.library_paths += %w(/usr/lib/X11)
   end
 end

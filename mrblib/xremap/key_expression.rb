@@ -26,10 +26,16 @@ module Xremap
           case modifier
           when 'C', 'Ctrl'
             mask |= X11::ControlMask
-          when 'M', 'Alt'
+          when 'Alt'
             mask |= X11::Mod1Mask
-          when 'Super', 'Win'
+          when 'M'
+            mask |= X11::Mod2Mask
+          when 'Super'
+            mask |= X11::Mod3Mask
+          when 'Hyper'
             mask |= X11::Mod4Mask
+          when 'Mode_switch'
+            mask |= X11::Mod5Mask
           when 'Shift'
             mask |= X11::ShiftMask
           end
