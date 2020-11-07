@@ -12,7 +12,7 @@ module Xremap
 
       def split_into_key_and_mods(exp)
         modifiers = []
-        while exp.match(/\A(?<modifier>(C|Ctrl|M|Alt|Shift|Super|Hyper|Mode_switch))-/)
+        while exp.match(/\A(?<modifier>(C|Ctrl|M|Alt|Shift|Super|Hyper))-/)
           modifier = Regexp.last_match[:modifier]
           modifiers << modifier
           exp = exp.sub(/\A#{modifier}-/, '')
@@ -34,8 +34,6 @@ module Xremap
             mask |= X11::Mod3Mask
           when 'Hyper'
             mask |= X11::Mod4Mask
-          when 'Mode_switch'
-            mask |= X11::Mod5Mask
           when 'Shift'
             mask |= X11::ShiftMask
           end
